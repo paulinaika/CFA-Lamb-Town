@@ -16,9 +16,28 @@
 
 @import "bulma";
 
-.nav {
-  margin-bottom:4em;
+html {
+  background-color: #e0f7fa;
 }
+
+.homepage h1{
+  font-weight: 700px;
+}
+
+
+.nav {
+  margin-bottom:2em;
+  background-color: transparent;
+  border-bottom: 2px dotted #3A87B0;
+}
+.nav-item a {
+font-size: 1em;
+}
+
+.button{
+margin-top: 1em;
+}
+
 
 .profile-pic{
   width: 3em;
@@ -29,4 +48,17 @@
   height: 3em;
   width: 3em;
   margin: 0.5em;
+}
+
+#nav-toggle-state {
+  display: none;
+}
+
+#nav-toggle-state:checked ~ .nav-menu {
+  display: block;
+
+}
+
+.text-center{
+  text-align: center;
 }
