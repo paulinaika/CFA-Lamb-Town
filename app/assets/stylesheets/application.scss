@@ -16,8 +16,13 @@
 
 @import "bulma";
 
-html {
+html, body{
   background-color: #e0f7fa;
+  height: 100%
+}
+
+.container{
+  padding: 1em;
 }
 
 .white-font{
@@ -34,6 +39,10 @@ html {
 
 .no-padding-top{
   padding-top: 0;
+}
+
+.padding-bottom{
+    padding-bottom: 1em;
 }
 
 .margin-top{
@@ -69,22 +78,27 @@ html {
 
 }
 
+.comment{
+  padding: 2em;
+  margin-bottom: 2em;
+}
+
 .text-center{
   text-align: center;
 }
 
 .denied {
-  font-size: 5em;
+  font-size: 2em;
   color: red;
 }
 
 .footer{
   position: absolute;
   width: 100%;
-  height: auto;
+  height: 10%;
   bottom: 0;
   overflow: hidden;
   background-color: #363636;
-  padding-top: 1em;
-  padding-bottom: 1em;
+  padding-top: 0.5em;
+  padding-bottom: 0.5em;
 }

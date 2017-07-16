@@ -15,7 +15,7 @@
     <div class="content">
       <%= @post.content %>
       <br>
-      <small><%= @post.user.email %></small>
+      <small>by: <%= @post.user.email %></small>
     </div>
   </div>
   <footer class="card-footer">
@@ -25,11 +25,8 @@
   </footer>
 </div>
 
-
-<div>
+<div class="comment">
   <%= render 'comments/form', comment: @comment, post: @post %>
-</div>
-
 
 <% @comments.each do |comment| %>
 <div class="card">
@@ -51,9 +48,10 @@
     </div>
   </div>
   <footer class="card-footer">
-    <li class="card-footer-item"><%= link_to 'Back', posts_path %></li>
     <li class="card-footer-item"><%= link_to 'Edit', edit_post_path(@post) %></li>
-    <li class="card-footer-item"><td><%= link_to 'Delete', @post, method: :delete, data: { confirm: 'Are you sure?' } %></li>
+    <!-- <li class="card-footer-item"><%#= link_to 'Back', posts_path %></li> -->
+    <!-- <li class="card-footer-item"><td><%#= link_to 'Delete', @post, method: :delete, data: { confirm: 'Are you sure?' } %></li> -->
   </footer>
+  </div>
 </div>
 <% end %>
