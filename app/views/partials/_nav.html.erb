@@ -1,47 +1,55 @@
-<nav class="nav">
-    <div class="container">
+<nav class="navbar is-transparent">
+  <div class="navbar-brand">
+    <a class="navbar-item no-padding-bottom no-padding-top" href="/">
+      <img src="http://res.cloudinary.com/dcbeoroxh/image/upload/v1500185325/lamb/lamb_nmibmn.png" alt="Young Lamb" width="58">
+    </a>
 
-        <img class="lamb-logo" src="http://1.bp.blogspot.com/_5JAv5qbGmfY/TCaq52spUsI/AAAAAAAABcI/N2BrhgUn0m8/s320/Lamb.png" alt="Young Lamb">
-        <div class="nav-left">
-            <a href="/" class="nav-item is-tab is-hidden-mobile">Home</a>
-            <a href="/posts" class="nav-item is-tab is-hidden-mobile">Posts</a>
-            <a class="button is-primary is hidden-mobile" href="/posts/new"> New Posts </a>
-
-            <!-- <a class="nav-item is-tab is-hidden-mobile">
-                <% if user_signed_in?  %>
-                <img class="profile-pic" src="https://regmedia.co.uk/2014/11/13/lamb.jpg?x=1200&y=794">
-                Profile
-                <% end %> -->
-        </a>
-        <label class="nav-toggle" for="nav-toggle-state">
-            <span></span>
-            <span></span>
-            <span></span>
-        </label>
-
-
-
-
-        <input type="checkbox" id="nav-toggle-state"/>
-        <div class="nav-right nav-menu">
-            <a href="/" class="nav-item is-tab is-hidden-tablet">Home</a>
-            <a href="/posts" class="nav-item is-tab is-hidden-tablet">Posts</a>
-            <!-- <a class="nav-item is-tab is-hidden-tablet">Pricing</a>
-            <a class="nav-item is-tab is-hidden-tablet">About</a> -->
-            <a class="nav-item is-tab">
-                <% if user_signed_in?  %>
-                <img class="profile-pic is-hidden-mobile" src="https://regmedia.co.uk/2014/11/13/lamb.jpg?x=1200&y=794">
-                Profile
-                <% end %>
-            </a>
-
-            <div class="nav-item is-tab">
-                <a><% if user_signed_in? %>
-                    <%= link_to('Logout', destroy_user_session_path, :method => :delete) %>
-                    <% end %>
-                </a>
-            </div>
-
-        </div>
+    <div class="navbar-burger burger" data-target="navMenuTransparentExample">
+      <span></span>
+      <span></span>
+      <span></span>
     </div>
+  </div>
+
+  <div id="navMenuTransparentExample" class="navbar-menu">
+    <div class="navbar-start">
+      <a class="navbar-item " href="/">
+        Home
+      </a>
+      <a class="navbar-item " href="/posts">
+        All Posts
+      </a>
+    </div>
+
+    <div class="navbar-end">
+      <div class="navbar-item">
+        <% if user_signed_in?  %>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link  is-active" href="/documentation/overview/start/">
+            <%= current_user.email %>
+          </a>
+          <div class="navbar-dropdown is-boxed">
+          <%= link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-item' %>
+          <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-item'  %>
+          </div>
+        </div>
+
+        <div class="field is-grouped">
+          <p class="control">
+            <a class="button is-primary" href="/posts/new">
+              <span class="icon">
+                <i class="fa fa-paper-plane "></i>
+              </span>
+              <span>Post Now</span>
+            </a>
+          </p>
+        </div>
+      </div>
+    </div>
+    <% else %>
+    <%= link_to "Sign up", new_user_registration_path, :class => 'navbar-link' %>
+    <%= link_to 'Login', new_user_session_path %>
+    <% end %>
+
+  </div>
 </nav>
