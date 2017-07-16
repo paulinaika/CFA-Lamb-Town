@@ -69,15 +69,6 @@ html, body{
   margin: 0.5em;
 }
 
-#nav-toggle-state {
-  display: none;
-}
-
-#nav-toggle-state:checked ~ .nav-menu {
-  display: block;
-
-}
-
 .comment{
   padding: 2em;
   margin-bottom: 2em;
