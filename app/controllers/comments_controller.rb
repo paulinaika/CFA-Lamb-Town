@@ -25,8 +25,8 @@ class CommentsController < ApplicationController
   # POST /comments.json
   def create
     @comment = Comment.new(comment_params)
-    @comment.user_id = current_user.id
     @post = Post.friendly.find(params[:post_id])
+    @comment.user_id = current_user.id
     @comment.post_id = @post.id
 
     respond_to do |format|
@@ -57,6 +57,8 @@ class CommentsController < ApplicationController
   # DELETE /comments/1
   # DELETE /comments/1.json
   def destroy
+    @post = Post.find(params[:post_id])
+    @comment = @post.comments.find(params[:id])
     @comment.destroy
     respond_to do |format|
       format.html { redirect_to comments_url, notice: 'Comment was successfully destroyed.' }

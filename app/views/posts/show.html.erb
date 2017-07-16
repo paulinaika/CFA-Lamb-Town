@@ -1,29 +1,59 @@
 <!-- <p id="notice"><%= notice %></p> -->
 
-<p>
-  <strong>Title:</strong>
-  <%= @post.title %>
-</p>
+<div class="card">
+  <header class="card-header">
+    <p class="card-header-title">
+      <%= @post.title %>
+    </p>
+    <a class="card-header-icon">
+      <span class="icon">
+        <i class="fa fa-angle-down"></i>
+      </span>
+    </a>
+  </header>
+  <div class="card-content">
+    <div class="content">
+      <%= @post.content %>
+      <br>
+      <small><%= @post.user.email %></small>
+    </div>
+  </div>
+  <footer class="card-footer">
+    <li class="card-footer-item"><%= link_to 'Back', posts_path %></li>
+    <li class="card-footer-item"><%= link_to 'Edit', edit_post_path(@post) %></li>
+    <li class="card-footer-item"><td><%= link_to 'Delete', @post, method: :delete, data: { confirm: 'Are you sure?' } %></li>
+  </footer>
+</div>
 
-<p>
-  <strong>Content:</strong>
-  <%= @post.content %>
-</p>
 
-<p>
-  <strong>User:</strong>
-  <%= @post.user.email %>
-</p>
+<div>
+  <%= render 'comments/form', comment: @comment, post: @post %>
+</div>
 
-<%= link_to 'Edit', edit_post_path(@post) %> |
-<%= link_to 'Back', posts_path %>
-
-<%= render 'comments/form', comment: @comment, post: @post %>
 
 <% @comments.each do |comment| %>
-<p><%= comment.user.email %></p>
-<p><%= comment.content %></p>
-<p><%= comment.created_at %></p>
-<p> ======================== </p>
-
+<div class="card">
+  <header class="card-header">
+    <p class="card-header-title">
+      <%= comment.user.email %>
+    </p>
+    <a class="card-header-icon">
+      <span class="icon">
+        <i class="fa fa-angle-down"></i>
+      </span>
+    </a>
+  </header>
+  <div class="card-content">
+    <div class="content">
+      <%= comment.content %>
+      <br>
+      <small><%= comment.created_at %></small>
+    </div>
+  </div>
+  <footer class="card-footer">
+    <li class="card-footer-item"><%= link_to 'Back', posts_path %></li>
+    <li class="card-footer-item"><%= link_to 'Edit', edit_post_path(@post) %></li>
+    <li class="card-footer-item"><td><%= link_to 'Delete', @post, method: :delete, data: { confirm: 'Are you sure?' } %></li>
+  </footer>
+</div>
 <% end %>
